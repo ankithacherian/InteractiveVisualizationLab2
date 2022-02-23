@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<body>
+<script type='text/javascript' src='https://d3js.org/d3.v7.min.js'></script>
+<script>
+    var svg = d3.select("body")
+     .append("svg")
+     .on("mousemove", function (actual, i) {
+	   focusText
+        .html(actual.value )
+        .attr("x", d3.pointer(this)[0])
+        .attr("y", d3.pointer(this)[1])
+        //alert(d3.mouse(this)[0])
+        ;
+	
+	}
+	)
+    var focusText = svg
+    .append('g')
+    .append('text')
+    .style("opacity", 0)
+    //.on('mousemove', function(event) {
+        // let coords = d3.pointer(event);
+         //console.log( coords[0], coords[1] ) // log the mouse x,y position
+        //});
+    //Append circle 
+    svg.append("circle")
+    .attr("cx", 250)
+    .attr("cy", 50)
+    .attr("r", 50);
+    
+    d3.selectAll("circle")
+     .on("mouseover", function(event){
+       d3.select(this)
+        .style("fill", "steelblue")
+        .attr("cx", 250)
+        .attr("cy", 50)
+        .attr("r", 50)
+        
+    // Get current event info
+    // Note: d3.event (event) passed as the first argument to all listeners
+      console.log(event);
+    // Get x & y co-ordinates
+    // Note: d3.mouse was removed in d3v6, you should use d3.pointer(event)
+    console.log(d3.pointer(event));
+    })
+    .on("mouseout", function(){
+      d3.select(this)
+        .style("fill", "red")
+        .attr("cx", 250)
+        .attr("cy", 350)
+        .attr("r", 80)
+        
+        });
+    svg.append("text")
+    .attr("x", d3.pointer(this)[0])
+    .attr("y", d3.pointer(this)[1])
+    .attr("stroke", "#fff")
+    .text("This is some text!");  
+
+
+</script>
+</body>
+</head>
+</html>
+
+------------------9---------9---------
+            update();
+     for (let i = 0; i <= 2; i++)
+     {
+         let newdiv = d3.select("body").append('div');
+        // newdiv.style("color", function(d,i) {return i <= 5 ? "red" : "green"; });//styling the data element based on condition
+    // }
+
+        if (i = 0)
+           {
+             newdiv.style('width', '100px')
+            .style('height', '100px')
+            .style('background-color', 'blue')
+            .style('transform', 'scale(1.0)')
+            .transition()
+            .ease( d3.easeBounce )
+            .duration(1000)
+            .style("background-color", "red")
+            .style('transform', 'scale(0.5)')
+            
+           } else if(i =1)
+                {
+                    .style('width', '200px')
+                    .style('height', '100px')
+                    .style('background-color', 'green')
+                    .style('transform', 'scale(1.0)')
+                    .transition()
+                    .ease( d3.easeCubicInOut )
+                    .duration(1000)
+                    .style("background-color", "black")
+                    .style('transform', 'scale(0.5)')
+                } else
+                    {
+                        .style('width', '500px')
+                        .style('height', '100px')
+                        .style('background-color', 'yellow')
+                        .style('transform', 'scale(1.0)')
+                        .transition()
+                        .ease( d3.easeElasticIn )
+                        .duration(1000)
+                        .style("background-color", "purple")
+                        .style('transform', 'scale(0.5)')
+                 }
+     }

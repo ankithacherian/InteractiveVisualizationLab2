@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<body>
+<script type='text/javascript' src='https://d3js.org/d3.v7.min.js'></script>
+<script>
+
+    var newdiv = d3.select("body")
+            
+    var div1 = newdiv.append("div")
+                .style('width', '100px')
+                .style('height', '100px')
+                .style('background-color', 'blue')
+    var div2 = newdiv.append("div")
+                .style('width', '200px')
+                .style('height', '100px')
+                .style('background-color', 'green')
+    var div3 = newdiv.append("div")
+                .style('width', '400px')
+                .style('height', '100px')
+                .style('background-color', 'yellow')
+                update();
+function update() {
+        div1.style('transform', 'scale(1.0)')
+        .transition()
+        .ease(d3.easeLinear)
+        .duration(1000)
+        .style("background-color", "red")
+        .style('transform', 'scale(0.5)')
+
+        div2.style('transform', 'scale(1.0)')
+        .transition()
+        .ease( d3.easeCubicInOut )
+        .duration(1000)
+        .style("background-color", "black")
+        .style('transform', 'scale(0.5)')
+        
+        div3.style('transform', 'scale(1.0)')
+        .transition()
+        .ease( d3.easeElasticIn )
+        .duration(1000)
+        .style("background-color", "purple")
+        .style('transform', 'scale(0.5)')
+
+         }           
+    
+</script>
+</body>
+</head>
+</html>

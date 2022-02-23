@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<body>
+    <script src='https://d3js.org/d3.v7.min.js'></script>
+    <script>
+     //Create SVG element
+     var svg = d3.select("body")
+     .append("svg")
+     .attr("width", 600)
+     .attr("height", 600)
+    
+     //Append circle 
+     svg.append("circle")
+     .attr("fill","orange")
+     .attr("cx", 250)
+     .attr("cy", 90)
+     .attr("r", 50)
+
+        //Create and append text element into group
+     svg.append("text")
+     .attr("x", 250)
+     .attr("y", 50)
+     .attr("stroke", "purple")
+     .text("Text Transition!")
+     .attr("font-size","20px")
+     d3.selectAll("text")
+      .on("mouseover", function(event){
+        d3.select(this)
+        .transition()
+        .ease( d3.easeLinearIn)
+        .duration(1000)
+        .attr("x", 250)
+        .attr("y", 70)
+        .attr("stroke", "red")
+        .attr("font-size","40px")})
+      .on("mouseout", function(){
+        d3.select(this)
+        .transition()
+        .ease( d3.easeBackInOut)
+        .duration(2000)
+        .attr("x", 150)
+        .attr("y", 50)
+        .attr("stroke", "purple")
+        .attr("font-size","20px")})
+     ;
+</script>
+</body>
+</head>
+</html>

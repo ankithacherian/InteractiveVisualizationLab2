@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<body>
+    <script src='https://d3js.org/d3.v7.min.js'></script>
+    <script>
+     //Create SVG element
+     var svg = d3.select("body")
+     .append("svg")
+     .attr("width", 600)
+     .attr("height", 600)
+    
+     //Append circle 
+     svg.append("circle")
+     .attr("fill","orange")
+     .attr("cx", 250)
+     .attr("cy", 90)
+     .attr("r", 50)
+     d3.selectAll("circle")
+      .on("mouseover", function(event){
+        d3.select(this)
+        .transition()
+        .ease( d3.easeBounceIn)
+        .duration(1000)
+        .attr("fill","yellow")
+        .attr("cx", 250)
+        .attr("cy", 90)
+        .attr("r", 75)})
+      .on("mouseout", function(){
+        d3.select(this)
+        .transition()
+        .ease( d3.easeBounceOut)
+        .duration(2000)
+        .attr("fill","orange")
+        .attr("cx", 250)
+        .attr("cy", 90)
+        .attr("r", 50)})
+     ;
+</script>
+</body>
+</head>
+</html>

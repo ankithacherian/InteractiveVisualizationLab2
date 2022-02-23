@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<body>
+<script type='text/javascript' src='https://d3js.org/d3.v7.min.js'></script>
+<script>
+    d3.select('body')
+    .append("div")
+    .style('width', '100px')
+    .style('height', '100px')
+    .style('background-color', 'blue')
+    .transition()
+    .duration(1000)
+    .style("background-color", "red")
+    .transition()
+    .duration(2000)
+    .style("background-color", "green")//transistion to green after 2 sec
+    .transition()
+    .duration(3000)
+    .style("background-color", "black")
+    .transition()
+    .duration(4000)
+    .style("background-color", "pink");
+</script>
+</body>
+</head>
+</html>
