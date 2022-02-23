@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<style>
+		h1 {
+			color: blue;
+			display: flex;
+			justify-content: center;
+		}
+   
+
+		#btn {
+			display: block;
+			margin: 0 auto;
+		}
+
+		#innerdiv {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+
+ 
+            .newspan{
+              float:left;
+            }
+ 
+            .newspan:hover{
+              
+              position: relative;
+              z-index: 5;  
+              color: aquamarine; 
+            }
+ 
+           
+            
+     
+        span:hover {
+ position: absolute;
+ display: inline-block;
+}
+
+    
+  .toshow {
+  display: none;
+  float: right;
+  background: maroon;
+  width: 200px;
+  height: 100px;
+  padding: 5px;
+  color: white
+}
+    
+	</style>
+</head>
+
+<body>
+	<h1>
+		Welcome to DVA Lab
+	</h1>
+	<div id="innerdiv"></div>
+    <span class ="newspan"></span>
+	<button id="btn">
+		Read me
+	</button>
+	<script>
+		document.getElementById("btn").
+			addEventListener("click", function () {
+		document.getElementById("innerdiv").
+			innerHTML += "<span>CSS </span>"
+      
+		});
+        document.ready(function () {
+    (".newspan").hover(function (e) {
+       
+        var description = ' <span>' + "Hello World"+ '</span>';
+        document.getElementById('newspan').innerHTML = description;
+
+    }, function (e) {
+        document.getElementById('newspan').innerHTML = '';
+    });
+});
+    
+	</script>
+</body>
+
+</html>
