@@ -1,10 +1,16 @@
+<!-- 
+    Lab: Lab2 
+	Author: Ankitha Susan Cherian
+    Date: 24-02-2022
+    This excercise aims at positioning text denoting value of the bar on top of the horizontal bar.
+ -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <body>
       <h2 style="text-align: center">Excercise 16:</h2>
       <h4 style="text-align: center">
-        Display popup text when the mouse cursor moves over each bar and bar is
+        Display popup text when the mouse cursor moves over each bar and is
         positioned ‘above’ the bar instead of the top left.
       </h4>
       <style>
@@ -27,30 +33,31 @@
         var margin = 200;
         var width = svg.attr("width") - margin;
         var height = svg.attr("height") - margin;
-        svg
-          .append("text")
+         
+        //adding title of bar chart
+        svg.append("text")
           .attr("transform", "translate(100,0)")
           .attr("x", 50)
           .attr("y", 50)
           .attr("font-size", "24px")
           .text("Stock Price");
+         
+          //setting scales of x and y axis
         var x = d3.scaleBand().range([0, width]).padding(0.4);
         var y = d3.scaleLinear().range([height, 0]);
         var g = svg
           .append("g")
           .attr("transform", "translate(" + 100 + "," + 100 + ")");
+
         d3.csv(dset).then(function (data) {
-          x.domain(
-            data.map(function (d) {
+          x.domain(data.map(function (d) {
               return d.year;
             })
           );
-          y.domain([
-            0,
-            d3.max(data, function (d) {
+          y.domain([0,d3.max(data, function (d) {
               return d.value;
-            }),
-          ]);
+            }),]);
+
           g.append("g")
             .attr("transform", "translate(0," + height + ")")
             .call(d3.axisBottom(x))
@@ -76,6 +83,8 @@
             .attr("text-anchor", "end")
             .attr("stroke", "black")
             .text("Stock Price");
+            
+            //adding rectangle bars
           g.selectAll(".bar")
             .data(data)
             .enter()
@@ -100,11 +109,7 @@
               return height - y(d.value);
             });
         });
-        //******************
-        /*
-         e.g., .on("mouseover", onMouseOver) //Add listener for the mouseover event
-          .on("mouseout", onMouseOut) //Add listener for the mouseout event
-         */
+      
         //mouseover event handler function
         function onMouseOver(d, i) {
           var pos = d3.pointer(this);
@@ -119,17 +124,16 @@
             .attr("height", function (d) {
               return height - y(d.value) + 10;
             });
-          g.append("text")
-            .attr("class", "val")
-            //.attr('x', function() {
-            //return x(d.year);
-            //})
-            //.attr('y', function() {
-            //return y(d.value) - 15;
-            //})
-            .attr("x", pos[0])
-            .attr("y", pos[1])
-            .attr("width", x.bandwidth())
+            
+          d3.select("text")
+            //adding x and y coordinates to display text value on top of horixontal bar
+            .attr("y", function (d) {
+              return y(i.value) + 50
+            })
+            .attr("x", function (d) {
+              return height- y(i.value) -10 ;
+            })
+            .style("pointer-events", "none") //disabling other pointer events
             .text(function (d) {
               return "$" + i.value;
             }); // Value of the text

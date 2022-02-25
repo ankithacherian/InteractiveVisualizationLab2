@@ -1,3 +1,9 @@
+<!-- 
+    Lab: Lab2 
+	Author: Ankitha Susan Cherian
+    Date: 24-02-2022
+    This excercise aims in learning interpolate functions
+ -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,13 +12,26 @@
       <h4 style="text-align: center">
         What is the interpolated color value for the above code (and why)
       </h4>
+
+      <p>When d3.interpolate("red", "green") is executed,an 'interpolater' is returned in variable 'intr'.<br>
+        intr(1) evaluates the 2 given colours and returns the second value 'green' <br>
+        
+       </p>
+        <p>Type of returned function is:  function <br>
+            
+           intr(0.1)= rgb(230, 13, 0) <br>
+            intr(1)=rgb(0, 128, 0) <br>
+            intr(0.5)=rgb(128, 64, 0) <br>
+            
+        </p>
+
       <script type="text/javascript" src="https://d3js.org/d3.v7.min.js"></script>
       <script>
         let intr = d3.interpolate("red", "green");
         console.log("Type of returned function is: ", typeof intr);
         console.log(intr(0.1));
         console.log(intr(1));
-        console.log(intr(0.4));
+        console.log(intr(0.5));
       </script>
     </body>
   </head>

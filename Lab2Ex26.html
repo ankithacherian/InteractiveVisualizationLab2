@@ -1,3 +1,9 @@
+<!-- 
+    Lab: Lab2 
+	Author: Ankitha Susan Cherian
+    Date: 24-02-2022
+    This excercise aims in learning interpolate date concept
+ -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,18 +12,26 @@
       <h4 style="text-align: center">
         : How would you interpolate a ‘date’ using D3? (show an example in code)
       </h4>
+
+      <p>When d3.interpolateDate(new Date("04/01/2000"), new Date("01/01/2010"))(0.2)) is executed,an 'interpolater' is returned .<br>
+        It evaluates the 2 given dates and returns an intermediate date (0.2 of both the dates) <br>
+        
+       </p>
+        <p> Output<br>
+            
+          d3.interpolateDate("01/01/2000", "01/02/2020")(1)= Invalid Date <br>
+          console.log(d3.interpolateDate(new Date(), new Date("01/01/2001"))(0.5) =Sat Jul 30 2011 22:25:50 GMT+0100 (British Summer Time)<br>
+          console.log(d3.interpolateDate(new Date("04/01/2000"), new Date("01/01/2010"))(0.2))=Thu Mar 14 2002 08:48:00 GMT+0000 (Greenwich Mean Time)<br>
+            
+        </p>
       <script type="text/javascript" src="https://d3js.org/d3.v7.min.js"></script>
       <script>
-        console.log(d3.interpolateDate("01/01/2001", "01/02/2002")(0.26));
+        console.log(d3.interpolateDate("01/01/2000", "01/02/2020")(1));
         // Given end date only
-        console.log(
-          d3.interpolateDate(new Date(), new Date("01/01/2001"))(0.5)
+        console.log(d3.interpolateDate(new Date(), new Date("01/01/2001"))(0.5)
         );
         // When both start and end date is given
-        console.log(
-          d3.interpolateDate(new Date("04/01/2001"), new Date("01/01/2001"))(2)
-        );
-        console.log(typeof d3.interpolateDate("2 asda", "13 geeks"));
+        console.log(d3.interpolateDate(new Date("04/01/2000"), new Date("01/01/2010"))(0.2));
       </script>
     </body>
   </head>

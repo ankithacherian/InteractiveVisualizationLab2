@@ -1,31 +1,41 @@
+<!-- 
+  Lab: Lab2
+  Author: Ankitha Susan Cherian
+  Date: 20-02-2022
+  This excercise aims at creating a div element and adding more css styles like
+  size and border based on mouse events(mouseover and mouseout)
+ -->
 <!DOCTYPE html>
 <html lang="en">
    <head>
    <body>
       <h2 style="text-align:center">Excercise 3:</h2>
-      <h4 style="text-align:center"> Modify the example so in addition to the color changing, display other styles change (e.g., size and border 
+      <h4 style="text-align:center"> Modify the code so in addition to the color changing, display other styles change (e.g., size and border 
          styles).
       </h4>
    </body>
    <script type='text/javascript' src='https://d3js.org/d3.v7.min.js'></script>
    <script>
+       //adding div element dynamically to the body
       d3.select('body')
       .append('div')
       .style('width', '250px')
       .style('height', '120px')
       .style('background-color', 'green');
+
+       //selecting all the div element
       d3.selectAll("div")
+
+      //during mouseover event, the current div changes color to blue with a double border
       .on("mouseover", function(event){
         d3.select(this)
         .style("background-color", "steelblue")
         .style('border-style','double');
-      // Get current event info
-      // Note: d3.event (event) passed as the first argument to all listeners
-        console.log(event);
-      // Get x & y co-ordinates
-      // Note: d3.mouse was removed in d3v6, you should use d3.pointer(event)
-      console.log(d3.pointer(event));
+         console.log(event); // Get current event info
+         console.log(d3.pointer(event));  //Get x & y co-ordinates
       })
+       
+       //during mouseout event, the current div changes color to red with a dashed border
       .on("mouseout", function(){
           d3.select(this)
           .style("background-color", "red")

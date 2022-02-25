@@ -1,12 +1,22 @@
+<!--
+	Lab: Lab2 
+	Author: Ankitha Susan Cherian
+    Date: 10-02-2022
+	This excercise aims at adding html items dynamically and to check the mouse hover
+	function by adding more css styling
+ -->
 <!DOCTYPE html>
 <html>
+	
 <head>
 <body>
 	<h2 style="text-align:center">Excercise 2:</h2>
-	<h4> Create a webpage using D3 (adds items dynamically), then set the styles for the items so they use CSS to
+	<h4 style = "text-align:center"> Create a webpage using D3 (adds items dynamically), then set the styles for the items so they use CSS to
 		display extra information when the mouse cursor moves over them.
 	</h4>
 </body>
+ <!-- CSS Styling of the h1, btn,div and span elements are given here 
+	along with hover action for span  -->
 <style>
 	h1 {
 		color: blue;
@@ -61,6 +71,7 @@
 		Read me
 	</button>
 	<script>
+		//adding html items dynamically
 		document.getElementById("btn").
 			addEventListener("click", function () {
 				document.getElementById("innerdiv").
