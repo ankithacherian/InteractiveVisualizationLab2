@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<body>
-<script type='text/javascript' src='https://d3js.org/d3.v7.min.js'></script>
-<script>
-let cc = d3.interpolateDate('red', 'green')
-console.log( cc(0.5) );
-</script>
-</body>
-</head>
+  <head>
+    <body>
+      <h2 style="text-align: center">Excercise 26:</h2>
+      <h4 style="text-align: center">
+        : How would you interpolate a ‘date’ using D3? (show an example in code)
+      </h4>
+      <script type="text/javascript" src="https://d3js.org/d3.v7.min.js"></script>
+      <script>
+        console.log(d3.interpolateDate("01/01/2001", "01/02/2002")(0.26));
+        // Given end date only
+        console.log(
+          d3.interpolateDate(new Date(), new Date("01/01/2001"))(0.5)
+        );
+        // When both start and end date is given
+        console.log(
+          d3.interpolateDate(new Date("04/01/2001"), new Date("01/01/2001"))(2)
+        );
+        console.log(typeof d3.interpolateDate("2 asda", "13 geeks"));
+      </script>
+    </body>
+  </head>
 </html>
