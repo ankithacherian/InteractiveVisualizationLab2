@@ -1,3 +1,9 @@
+<!-- 
+    Lab: Lab2 
+	Author: Ankitha Susan Cherian
+    Date: 24-02-2022
+    This excercise aims displaying different colors for bar chart based on conditions like min, max etc
+ -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,10 +13,13 @@
       (e.g., red maximum and blue the minimum range
    </h4 
    <style>
-       .highlight {
-       fill: orange;
+      .bar {
+        fill: steelblue;
       }
-   </style>
+      .highlight {
+        fill: orange;
+      }
+    </style>
    <script type='text/javascript' src='https://d3js.org/d3.v7.min.js'></script>
    <svg width="600" height="500"></svg>
    <script>
@@ -32,6 +41,7 @@
       d3.csv(dset).then(function (data) {
          x.domain(data.map(function (d) { return d.year; }));
          y.domain([0, d3.max(data, function (d) { return d.value; })]);
+
          g.append("g")
             .attr("transform", "translate(0," + height + ")")
             .call(d3.axisBottom(x))
@@ -41,6 +51,7 @@
             .attr("text-anchor", "end")
             .attr("stroke", "black")
             .text("Year");
+
          g.append("g")
             .call(d3.axisLeft(y).tickFormat(function (d) {
                return "$" + d;
@@ -52,6 +63,7 @@
             .attr("text-anchor", "end")
             .attr("stroke", "black")
             .text("Stock Price");
+            
          g.selectAll(".bar")
             .data(data)
             .enter().append("rect")
@@ -83,11 +95,7 @@
             })
             .attr("height", function (d) { return height - y(d.value); });
       });
-      //******************
-      /*
-      e.g., .on("mouseover", onMouseOver) //Add listener for the mouseover event
-       .on("mouseout", onMouseOut) //Add listener for the mouseout event
-      */
+      
       //mouseover event handler function
       function onMouseOver(d, i) {
          d3.select(this).attr('class', 'highlight');
@@ -99,12 +107,6 @@
             .attr("height", function (d) { return height - y(d.value) + 10; });
          g.append("text")
             .attr('class', 'val')
-            //.attr('x', function() {
-            //return x(d.year);
-            //})
-            //.attr('y', function() {
-            //return y(d.value) - 15;
-            //})
             .attr("x", function (
 
             ) { return x(d.value); })

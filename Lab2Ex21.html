@@ -2,21 +2,18 @@
     Lab: Lab2 
 	Author: Ankitha Susan Cherian
     Date: 24-02-2022
-    This excercise aims in loading barcharts from 3 different datasets in 3 different colours controlled by 3 buttons
+    This excercise is to add axisTop and axisRight to the existing barchart
  -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <body>
-      <h2 style="text-align: center">Excercise 19:</h2>
+      <h2 style="text-align: center">Excercise 21:</h2>
       <h4 style="text-align: center">
-        Modify the example so that each data set is displayed in a different
-        color (rectangle bars are drawn in a different color)
+        Add an axis to the top and to the right of the bar chart (also displays an axis along the top and along the 
+        right of the chart)
       </h4>
-      <script
-        type="text/javascript"
-        src="https://d3js.org/d3.v7.min.js"
-      ></script>
+      <script type="text/javascript" src="https://d3js.org/d3.v7.min.js"></script>
       <!-- Add buttons -->
       <button onclick="update(data1,1)">Variable 1</button>
       <button onclick="update(data2,2)">Variable 2</button>
@@ -25,13 +22,13 @@
         // create 3 data_set
         const data1 = [
           { group: "A", value: 5 },
-          { group: "B", value: 20 },
+          { group: "B", value: 18 },
           { group: "C", value: 9 },
         ];
         const data2 = [
           { group: "A", value: 10 },
           { group: "B", value: 2 },
-          { group: "C", value: 22 },
+          { group: "C", value: 19 },
         ];
         const data3 = [
           { group: "A", value: 7 },
@@ -40,7 +37,7 @@
         ];
 
         // set the dimensions and margins of the graph
-        const margin = { top: 30, right: 30, bottom: 70, left: 60 };
+        const margin = { top: 70, right: 60, bottom: 30, left: 30 };
         const width = 460 - margin.left - margin.right;
         const height = 400 - margin.top - margin.bottom;
         // append the svg object to the body of the page
@@ -53,7 +50,7 @@
           .append("g")
           .attr(
             "transform",
-            "translate(" + margin.left + "," + margin.top + ")"
+            "translate(" + margin.right + "," + margin.top + ")"
           );
         // X axis
         var x = d3
@@ -65,15 +62,33 @@
             })
           )
           .padding(0.2);
-        svg
-          .append("g")
+
+          //Bottom axis
+        svg.append("g")
           .attr("transform", "translate(0," + height + ")")
           .call(d3.axisBottom(x));
-        // Add Y axis
-        var y = d3.scaleLinear().domain([0, 20]).range([height, 0]);
-        svg.append("g").attr("class", "myYaxis").call(d3.axisLeft(y));
 
-        // to update the plot for a given variable:
+        // top axis
+          svg.append("g")
+          .call(d3.axisTop(x));
+
+        // Add Y axis
+        var y = d3.scaleLinear()
+                .domain([0, 20])
+                .range([height, 0]);
+         
+          // left y axis
+           svg.append("g")
+            .attr("class", "myYaxis")
+            .call(d3.axisLeft(y));
+
+          // right y axis
+          svg.append("g")
+          .attr("transform", "translate(370,0)")
+          .attr("class", "myYaxis")
+          .call(d3.axisRight(y));
+
+        // A function that create / update the plot for a given variable:
         function update(data, ds_num) {
           var dataSet = ds_num;
           var u = svg.selectAll("rect").data(data);
@@ -92,7 +107,6 @@
             .attr("height", function (d) {
               return height - y(d.value);
             })
-            
             //setting 3 different colours for all barcharts from 3 datasets
             .attr("fill", function () {
               if (dataSet == 1) {

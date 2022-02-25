@@ -1,3 +1,9 @@
+<!-- 
+    Lab: Lab2 
+	Author: Ankitha Susan Cherian
+    Date: 24-02-2022
+    This excercise aims in changing color of spheres when the mouse moves over them
+ -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -39,6 +45,7 @@
             .join("circle")
             //using dynamic properties, displaying all circles in different colors https://d3js.org/#properties
             .attr("fill", "green")
+            //
             .on("mouseover", function () {
               d3.select(this).attr("fill", "red");
             })

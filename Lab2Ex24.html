@@ -1,3 +1,9 @@
+<!-- 
+    Lab: Lab2 
+	Author: Ankitha Susan Cherian
+    Date: 24-02-2022
+    This excercise aims in learning interpolate functions
+ -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,6 +12,12 @@
       <h4 style="text-align: center">
         Output for the Interpolate example (and why)
       </h4>
+      <p>When d3.interpolate([20, 40, 4], [1, 12, 10]) is executed,an 'interpolater' is returned in variable 'intr'.<br>
+           intr(0.5) evaluates the 2 given arrays and returns an intermediate value between the corresponding values in <br>
+           array [20,40,4] and Array [1,12,10].  <br>
+          intr(0.5)=[10.5,26,7] (half of each element in 2 arrays).<br>
+           Note: The return value is in domain [0,1] where value returned is equivalent to a=0 and b=1.>br>
+           </p>
       <script
         type="text/javascript"
         src="https://d3js.org/d3.v7.min.js"
@@ -13,7 +25,7 @@
       <script>
         let intr = d3.interpolate([20, 40, 4], [1, 12, 10]);
         console.log("Type of returned function is:");
-        console.log(intr(0.2));
+        console.log(intr(0.5));
       </script>
     </body>
   </head>

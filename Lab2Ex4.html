@@ -1,3 +1,11 @@
+<!-- 
+  Lab: Lab2
+  Author: Ankitha Susan Cherian
+  Date: 20-02-2022
+  This excercise aims at creating a circle using svg and changing its radius 
+  (growing and shrinking to original size)
+  based on mouse events(mouseover and mouseout)
+ -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,38 +16,35 @@
         the default size when the mouse moves out)</h4>
 <script type='text/javascript' src='https://d3js.org/d3.v7.min.js'></script>
 <script>
+     //Appending svg to the body
     var svg = d3.select("body")
     .append("svg")
     .attr("width", 600)
     .attr("height", 600)
     .style("border", '1px solid green')
 
-    //Append circle 
+    //Appending circle 
     svg.append("circle")
     .attr("cx", 250)
     .attr("cy", 50)
     .attr("r", 50);
+
+    // radius shrinks to its original size in mouseover event
     d3.selectAll("circle")
      .on("mouseover", function(event){
        d3.select(this)
         .style("fill", "steelblue")
         .attr("cx", 250)
         .attr("cy", 50)
-        .attr("r", 50)
-   
-    // Get current event info
-    // Note: d3.event (event) passed as the first argument to all listeners
-      console.log(event);
-    // Get x & y co-ordinates
-    // Note: d3.mouse was removed in d3v6, you should use d3.pointer(event)
-    console.log(d3.pointer(event));
-    })
+        .attr("r", 50) 
+       })
+    //radius grows than the original size in mouseout event
     .on("mouseout", function(){
       d3.select(this)
-        .style("fill", "red")
+        .style("fill", "red") //changing color to red
         .attr("cx", 250)
         .attr("cy", 350)
-        .attr("r", 80)
+        .attr("r", 80) // the circle grows as radius in increased
         
         });
 </script>

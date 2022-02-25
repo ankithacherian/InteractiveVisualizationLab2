@@ -1,3 +1,9 @@
+<!-- 
+    Lab: Lab2 
+	Author: Ankitha Susan Cherian
+    Date: 24-02-2022
+    This excercise aims in loading barcharts from 3 different datasets controlled by 3 buttons
+ -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,10 +17,10 @@
         type="text/javascript"
         src="https://d3js.org/d3.v7.min.js"
       ></script>
-      <!-- Add buttons -->
+      <!-- Add buttons for 3 datasets -->
       <button onclick="update(data1)">Variable 1</button>
       <button onclick="update(data2)">Variable 2</button>
-      <button onclick="update(data3)">Variable 3</button>
+      <button onclick="update(data3)">Variable 3</button> 
       <script>
         // create 3 data_set
         const data1 = [
@@ -37,6 +43,7 @@
         const margin = { top: 30, right: 30, bottom: 70, left: 60 };
         const width = 460 - margin.left - margin.right;
         const height = 400 - margin.top - margin.bottom;
+        
         // append the svg object to the body of the page
         var svg = d3
           .select("body")
@@ -66,7 +73,8 @@
         // Add Y axis
         var y = d3.scaleLinear().domain([0, 20]).range([height, 0]);
         svg.append("g").attr("class", "myYaxis").call(d3.axisLeft(y));
-        // A function that create / update the plot for a given variable:
+
+        // A function to update the plot for a given dataset
         function update(data) {
           var u = svg.selectAll("rect").data(data);
           u.enter()
