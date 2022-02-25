@@ -1,35 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<body>
-<script type='text/javascript' src='https://d3js.org/d3.v7.min.js'></script>
-<script>
-    d3.select('body')
-    .append("div")
-    .style('width', '100px')
-    .style('height', '100px')
-    .style('background-color', 'blue')
-    .transition()
-    .duration(1000)
-    .style('width', '70px')//transition of size by changing width and height
-    .style('height', '50px')
-    .style("background-color", "red")
-    .transition()
-    .duration(2000)
-    .style('width', '150px')
-    .style('height', '150px')
-    .style("background-color", "green")
-    .transition()
-    .duration(3000)
-    .style('width', '75px')
-    .style('height', '75px')
-    .style("background-color", "black")
-    .transition()
-    .duration(4000)
-    .style('width', '120px')
-    .style('height', '120px')
-    .style("background-color", "pink");
-</script>
-</body>
-</head>
+   <head>
+   <body>
+      <h2 style="text-align:center">Excercise 7:</h2>
+      <h4 style="text-align:center"> In addition to transitioning the color, also change the ‘size’ of the div element so it transitions smaller 
+         then transitions larger (i.e., width and height style values).       
+      </h4>
+      <script type='text/javascript' src='https://d3js.org/d3.v7.min.js'></script>
+      <script>
+         d3.select('body')
+         .append("div")
+         .style('width', '100px')
+         .style('height', '100px')
+         .style('background-color', 'blue')
+         .transition()
+         .duration(1000)
+         .style('width', '70px')//transition of size by changing width and height
+         .style('height', '50px')
+         .style("background-color", "red")
+         .transition()
+         .duration(2000)
+         .style('width', '150px')
+         .style('height', '150px')
+         .style("background-color", "green")
+         .transition()
+         .duration(3000)
+         .style('width', '75px')
+         .style('height', '75px')
+         .style("background-color", "black")
+         .transition()
+         .duration(4000)
+         .style('width', '120px')
+         .style('height', '120px')
+         .style("background-color", "pink");
+      </script>
+   </body>
+   </head>
 </html>

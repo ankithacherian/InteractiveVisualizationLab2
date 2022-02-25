@@ -1,53 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<body>
-    <h3>Display of 3 Bar charts with delay in the transition effect</h3>
-<script type='text/javascript' src='https://d3js.org/d3.v7.min.js'></script>
-<script>
- var svg = d3.select("body")
-            .append("svg")
-            .attr("width", 500)
-            .attr("height", 500);
- var bar1 = svg.append("rect")
-            .attr("fill", "blue")
-            .attr("x", 100)
-            .attr("y", 20)
-            .attr("height", 20)
-            .attr("width", 10)
- var bar2 = svg.append("rect")
-            .attr("fill", "blue")
-            .attr("x", 120)
-            .attr("y", 20)
-            .attr("height", 20)
-            .attr("width", 10)
- var bar3 = svg.append("rect")
-            .attr("fill", "blue")
-            .attr("x", 140)
-            .attr("y", 20)
-            .attr("height", 20)
-            .attr("width", 10)
-            update();
-function update() {
-        bar1.transition()
-        .ease(d3.easeLinear)
-        .duration(2000)
-        .attr("height",100)
-        
-        bar2.transition()
-        .ease(d3.easeLinear)
-        .duration(2000)
-        .delay(2000)
-        .attr("height",125)
-       
-        bar3.transition()
-        .ease(d3.easeLinear)
-        .duration(3000)
-        .delay(6000)
-        .attr("height",150)
-        
-            }           
-</script>
-</body>
-</head>
+   <head>
+   <body>
+      <h2 style="text-align:center">Excercise 12:</h2>
+      <h4 style="text-align:center"> Add a third bar to the example above which starts to animate after 4 seconds     
+      </h4>
+      <script type='text/javascript' src='https://d3js.org/d3.v7.min.js'></script>
+      <script>
+         var svg = d3.select("body")
+                    .append("svg")
+                    .attr("width", 500)
+                    .attr("height", 500);
+         var bar1 = svg.append("rect")
+                    .attr("fill", "blue")
+                    .attr("x", 100)
+                    .attr("y", 20)
+                    .attr("height", 20)
+                    .attr("width", 10)
+         var bar2 = svg.append("rect")
+                    .attr("fill", "blue")
+                    .attr("x", 120)
+                    .attr("y", 20)
+                    .attr("height", 20)
+                    .attr("width", 10)
+         var bar3 = svg.append("rect")
+                    .attr("fill", "blue")
+                    .attr("x", 140)
+                    .attr("y", 20)
+                    .attr("height", 20)
+                    .attr("width", 10)
+                    update();
+         function update() {
+                bar1.transition()
+                .ease(d3.easeLinear)
+                .duration(2000)
+                .attr("height",100)
+                
+                bar2.transition()
+                .ease(d3.easeLinear)
+                .duration(2000)
+                .delay(2000)
+                .attr("height",125)
+               
+                bar3.transition()
+                .ease(d3.easeLinear)
+                .duration(3000)
+                .delay(6000)
+                .attr("height",150)
+                
+                    }           
+      </script>
+   </body>
+   </head>
 </html>

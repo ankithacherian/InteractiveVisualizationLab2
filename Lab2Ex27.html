@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <body>
+      <h2 style="text-align: center">Excercise 27:</h2>
+      <h4 style="text-align: center">
+        Add an additional data set and modify to the code so the ‘pie chart’ transitions (animated) between the 
+        currently displayed data set and your new test data set (e.g., click button the pie chart segments animate to new 
+        data values). Note, all the segments should not ‘pop’ out/in but should transition smoothly
+      </h4>
+      <button onclick="update(dataset1)">Piechart 1</button>
+      <button onclick="update(dataset2)">Piechart 2</button>
+      <script
+        type="text/javascript"
+        src="https://d3js.org/d3.v7.min.js"
+      ></script>
+      <script>
+        var dataset1 = { apples: [5345, 2879, 1997, 2437, 4045] };
+        var dataset2 = { oranges: [1500, 4500, 2303, 5000, 845] };
+        var width = 460,
+          height = 300,
+          radius = Math.min(width, height) / 2;
+        var color = d3.scaleOrdinal().range(d3.schemeSet3);
+        //var color2 = d3.scaleSequential().interpolator(d3.interpolateInferno).domain([1,100]);
+        var pie = d3.pie().sort(null);
+        var arc = d3
+          .arc()
+          .innerRadius(radius - 100)
+          .outerRadius(radius - 50);
+        var svg = d3
+          .select("body")
+          .append("svg")
+          .attr("width", width)
+          .attr("height", height)
+          .append("g")
+          .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+        function update(dataset) {
+          if (dataset == dataset1) {
+            var path = svg
+              .selectAll("path")
+              .data(pie(dataset1.apples))
+              .enter()
+              .append("path")
+              .attr("fill", function (d, i) {
+                return color(i);
+              })
+              .attr("d", arc)
+              .transition()
+              .duration(1000)
+              .attrTween("d", function (d) {
+                var i = d3.interpolate(d.endAngle, d.startAngle);
+                return function (t) {
+                  d.startAngle = i(t);
+                  return arc(d);
+                };
+              });
+          } else {
+            var path = svg
+              .selectAll("path")
+              .data(pie(dataset2.oranges))
+              .enter()
+              .append("path")
+              .attr("fill", function (d, i) {
+                return color(i);
+              })
+              .attr("d", arc)
+              .transition()
+              .duration(2000)
+              .attrTween("d", function (d) {
+                var i = d3.interpolate(d.endAngle, d.startAngle);
+                return function (t) {
+                  d.startAngle = i(t);
+                  return arc(d);
+                };
+              });
+          }
+        }
+        //update(dataset1)
+      </script>
+    </body>
+  </head>
+</html>
