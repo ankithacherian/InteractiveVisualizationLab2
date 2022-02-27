@@ -1,3 +1,9 @@
+<!--
+	Lab: Lab2 
+	Author: Ankitha Susan Cherian
+    Date: 19-02-2022
+	This excercise aims at adding extra div and performing color transitions from red to green in 2 seconds.
+ -->
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -7,24 +13,24 @@
          continues to transition to ‘green’ over 2 seconds.       
       </h4>
       <script type='text/javascript' src='https://d3js.org/d3.v7.min.js'></script>
-      <script>
+      <script>//selecting the body and appending div
          d3.select('body')
          .append("div")
          .style('width', '100px')
          .style('height', '100px')
          .style('background-color', 'blue')
-         .transition()
+         .transition() //setting transition duration to 1000ms
          .duration(1000)
-         .style("background-color", "red")
+         .style("background-color", "red") //transistion to red after 1 sec
          .transition()
          .duration(2000)
          .style("background-color", "green")//transistion to green after 2 sec
          .transition()
          .duration(3000)
-         .style("background-color", "black")
+         .style("background-color", "black")//transistion to black after 3 sec
          .transition()
          .duration(4000)
-         .style("background-color", "pink");
+         .style("background-color", "pink");//transistion to pink after 4 sec
       </script>
    </body>
    </head>

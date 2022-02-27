@@ -1,4 +1,11 @@
-<!DOCTYPE html>
+<!--
+	Lab: Lab2 
+	Author: Ankitha Susan Cherian
+   Date: 21-02-2022
+	This excercise aims at adding easing effect to a text in a circle
+   which grows on mouseover event and shrinks to original size on mouseout event
+ -->
+ <!DOCTYPE html>
 <html lang="en">
 <head>
 <body>
@@ -21,7 +28,7 @@
      .attr("cy", 90)
      .attr("r", 50)
 
-        //Create and append text element into group
+      //Create and append text element into group
      svg.append("text")
      .attr("x", 250)
      .attr("y", 50)
@@ -32,7 +39,7 @@
       .on("mouseover", function(event){
         d3.selectAll("text")
         .transition()
-        .ease( d3.easeElasticIn)
+        .ease( d3.easeElasticIn)//performing easeElasticIn transition on text
         .duration(1000)
         .attr("x", 250)
         .attr("y", 50)
@@ -42,7 +49,7 @@
       .on("mouseout", function(){
         d3.select(this)
         .transition()
-        .ease( d3.easeBackInOut)
+        .ease( d3.easeBackInOut) //performing easeBackInOut transition on text
         .duration(2000)
         .attr("x", 150)
         .attr("y", 50)

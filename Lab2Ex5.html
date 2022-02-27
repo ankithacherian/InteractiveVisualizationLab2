@@ -14,7 +14,7 @@
       <h2 style="text-align: center">Excercise 5:</h2>
       <h4 style="text-align: center">
         When the mouse moves over the ‘svg’ container, add a ‘text’ svg element
-        at the location of the mouse position. As the mouse cursor moves around
+        at the location of the mouse position.<br> As the mouse cursor moves around
         the svg container, have the text move to the cursor position (i.e., text
         follows the mouse cursor).
       </h4>
@@ -29,12 +29,15 @@
           .select("body")
           .append("svg")
           .attr("width", 600)
-          .attr("height", 600)
+          .attr("height", 400)
           .style("border", "1px solid green");
 
         //Appending circle
-        svg.append("circle").attr("cx", 250).attr("cy", 70).attr("r", 50);
-        d3.selectAll("circle")
+        svg.append("circle")
+            .attr("cx", 250)
+            .attr("cy", 70)
+            .attr("r", 50);
+            d3.selectAll("circle")
 
           //getting mouse positions for x and y cordinates using d3.pointer
           .on("mouseover", function (event) {

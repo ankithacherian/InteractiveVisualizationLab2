@@ -1,4 +1,10 @@
-<!DOCTYPE html>
+<!--
+	Lab: Lab2 
+	Author: Ankitha Susan Cherian
+    Date: 21-02-2022
+	This excercise aims at performing different transitions methods with mouse events
+ -->
+ <!DOCTYPE html>
 <html lang="en">
    <head>
    <body>
@@ -14,7 +20,9 @@
          .style('height', '100px')
          .style('background-color', 'blue')
          d3.selectAll("div")
-          .on("mouseover", function(event){// smooth transition of colour change of div onmover and mouseout
+         //smooth transition of color, border-style, width and height 
+         //of div on onmouseover and mouseout events
+          .on("mouseover", function(event){// 
              d3.select(this)
              .transition()
              .duration(1000)
@@ -22,7 +30,7 @@
              .style('height', '150px')
              .style('border-style','inset')
              .style("background-color", "red") })
-         
+         //changing color, border-style, width and height during mouse out event
          .on("mouseout", function(){
              d3.select(this)
              .transition()

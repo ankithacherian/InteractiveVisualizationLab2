@@ -1,3 +1,10 @@
+<!--
+	Lab: Lab2 
+	Author: Ankitha Susan Cherian
+   Date: 21-02-2022
+	This excercise aims at adding easing effect to a circle
+   which grows on mouseover event and shrinks to original size on mouseout event
+ -->
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -22,24 +29,26 @@
          .attr("cy", 90)
          .attr("r", 50)
          d3.selectAll("circle")
+         
           .on("mouseover", function(event){
             d3.select(this)
             .transition()
-            .ease( d3.easeBounceIn)
+            .ease( d3.easeBounceIn)//performing easeBounceIn transition on mouseover event
             .duration(1000)
             .attr("fill","yellow")
             .attr("cx", 250)
             .attr("cy", 90)
-            .attr("r", 75)})
+            .attr("r", 75)})// transition into bigger circle on mouseover event
+
           .on("mouseout", function(){
             d3.select(this)
             .transition()
-            .ease( d3.easeBounceOut)
+            .ease( d3.easeBounceOut) //performing easeBounceOut transition on mouseout event
             .duration(2000)
             .attr("fill","orange")
             .attr("cx", 250)
             .attr("cy", 90)
-            .attr("r", 50)})
+            .attr("r", 50)}) // transition into original size on mouseout event
          ;
       </script>
    </body>

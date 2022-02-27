@@ -42,6 +42,7 @@
          x.domain(data.map(function (d) { return d.year; }));
          y.domain([0, d3.max(data, function (d) { return d.value; })]);
 
+         //calling y axis
          g.append("g")
             .attr("transform", "translate(0," + height + ")")
             .call(d3.axisBottom(x))
@@ -51,7 +52,7 @@
             .attr("text-anchor", "end")
             .attr("stroke", "black")
             .text("Year");
-
+         //calling x axis
          g.append("g")
             .call(d3.axisLeft(y).tickFormat(function (d) {
                return "$" + d;
@@ -63,11 +64,12 @@
             .attr("text-anchor", "end")
             .attr("stroke", "black")
             .text("Stock Price");
-            
+            //appending rectangle bar
          g.selectAll(".bar")
             .data(data)
             .enter().append("rect")
             .attr("class", "bar")
+
             //using d3.max() and d3.min() to display bars in different colors
             .attr("fill", function (d) {
                var dmax = d3.max(data, function (d) { return +d.value; })
