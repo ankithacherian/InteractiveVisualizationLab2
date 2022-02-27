@@ -11,8 +11,8 @@
 <head>
 <body>
   <h2 style="text-align:center">Excercise 4:</h2>
-      <h4 style="text-align:center"> : Add a ‘svg’ container and add a ‘circle’ svg. 
-        When the mouse moves over the svg circle, change the radius (e.g., larger when the mouse moves over and back to 
+      <h4 style="text-align:center"> Add a ‘svg’ container and add a ‘circle’ svg. 
+        When the mouse moves over the svg circle, change the radius<br> (e.g., larger when the mouse moves over and back to 
         the default size when the mouse moves out)</h4>
 <script type='text/javascript' src='https://d3js.org/d3.v7.min.js'></script>
 <script>
@@ -20,33 +20,36 @@
     var svg = d3.select("body")
     .append("svg")
     .attr("width", 600)
-    .attr("height", 600)
+    .attr("height", 400)
     .style("border", '1px solid green')
 
     //Appending circle 
     svg.append("circle")
     .attr("cx", 250)
-    .attr("cy", 50)
-    .attr("r", 50);
+    .attr("cy", 80)
+    .attr("r", 50)
+    .style("fill", "steelblue");
 
-    // radius shrinks to its original size in mouseover event
+    // radius grows than the original size in mouseout event
     d3.selectAll("circle")
      .on("mouseover", function(event){
-       d3.select(this)
-        .style("fill", "steelblue")
-        .attr("cx", 250)
-        .attr("cy", 50)
-        .attr("r", 50) 
-       })
-    //radius grows than the original size in mouseout event
-    .on("mouseout", function(){
       d3.select(this)
         .style("fill", "red") //changing color to red
         .attr("cx", 250)
-        .attr("cy", 350)
+        .attr("cy", 250)
         .attr("r", 80) // the circle grows as radius in increased
         
-        });
+        })    
+    //radius shrinks to its original size in mouseover event
+    .on("mouseout", function(){
+      d3.select(this)
+        .style("fill", "steelblue")
+        .attr("cx", 250)
+        .attr("cy", 80)
+        .attr("r", 50) 
+       });
+        
+        
 </script>
 </body>
 </head>

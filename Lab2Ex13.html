@@ -1,3 +1,9 @@
+<!--
+	Lab: Lab2 
+	Author: Ankitha Susan Cherian
+   Date: 22-02-2022
+	This excercise aims at adding additional transition effect which grows and shrinks
+ -->
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -31,33 +37,34 @@
                     .attr("height", 20)
                     .attr("width", 10)
                     update();
+          //function to perform transition of 3 bars
          function update() {
                 bar1.transition()
-                .ease(d3.easeLinear)
+                .ease(d3.easeLinear) //performing easeLinear transition on bar1
                 .duration(2000)
                 .attr("height",100)
                 bar1.transition()
                 .duration(2000)
                 .delay(1000)
-                .attr("height",40)
+                .attr("height",40) //transitioning back to original height of bar1
                 bar2.transition()
-                .ease(d3.easeLinear)
+                .ease(d3.easeLinear) //performing easeLinear transition on bar1
                 .duration(2000)
                 .delay(2000)
                 .attr("height",125)
                 bar2.transition()
                 .duration(2000)
                 .delay(4000)
-                .attr("height",40)
+                .attr("height",40) //transitioning back to original height of bar1
                 bar3.transition()
-                .ease(d3.easeLinear)
+                .ease(d3.easeLinear)//performing easeLinear transition on bar2
                 .duration(3000)
                 .delay(6000)
                 .attr("height",150)
                 bar3.transition()
                 .duration(2000)
                 .delay(8000)
-                .attr("height",40)
+                .attr("height",40)//transitioning back to original height of bar3
                     }           
       </script>
    </body>

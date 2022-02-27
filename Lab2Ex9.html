@@ -1,3 +1,10 @@
+<!--
+	Lab: Lab2 
+	Author: Ankitha Susan Cherian
+    Date: 21-02-2022
+	This excercise aims at performing different ease transitions like
+    easeCubic, easeBounce,easeElastic etc for 3 div elements
+ -->
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -9,7 +16,7 @@
       <script type='text/javascript' src='https://d3js.org/d3.v7.min.js'></script>
       <script>
          var newdiv = d3.select("body")
-                 
+           //adding 3 div      
          var div1 = newdiv.append("div")
                      .style('width', '100px')
                      .style('height', '100px')
@@ -26,21 +33,21 @@
          function update() {
              div1.style('transform', 'scale(1.0)')
              .transition()
-             .ease(d3.easeLinear)
+             .ease(d3.easeLinear)// adding easeLinear transition to div1
              .duration(1000)
              .style("background-color", "red")
              .style('transform', 'scale(0.5)')
          
              div2.style('transform', 'scale(1.0)')
              .transition()
-             .ease( d3.easeCubicInOut )
+             .ease( d3.easeCubicInOut )// adding easeCubic transition to div2
              .duration(1000)
              .style("background-color", "black")
              .style('transform', 'scale(0.5)')
              
              div3.style('transform', 'scale(1.0)')
              .transition()
-             .ease( d3.easeElasticIn )
+             .ease( d3.easeElasticIn ) // adding easeElastic transition to div3
              .duration(1000)
              .style("background-color", "purple")
              .style('transform', 'scale(0.5)')
