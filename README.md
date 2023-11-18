@@ -15,3 +15,7 @@ number, array, colour, date etc.
 
 Lastly, we used d3. force layout to translate the nodes to specific position pulling 
 to the center and the collision function to prevent nodes from overlapping.
+
+This lab work helped in demonstrating a variety of skills, such as, problem solving, communication skills, time-
+management and so on. The labs were structured to encourage a mix of guided and active learning, innovative
+development, critical thinking and knowledge-based expertise of the subject.
